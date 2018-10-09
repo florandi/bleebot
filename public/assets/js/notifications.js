@@ -80,6 +80,13 @@
             $('.pgn').remove();
         });
 
+        // $('.page-container').pgNotification({
+        //     style: 'flip',
+        //     message: "Hey just checking",
+        //     position: 'top-right',
+        //     timeout: 3000,
+        //     type: 'success'
+        // }).show();
     });
 
 })(window.jQuery);

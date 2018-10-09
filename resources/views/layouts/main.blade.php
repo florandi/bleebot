@@ -114,7 +114,7 @@
     <script src="{{ asset('assets/js/dashboard.js') }}" type="text/javascript"></script>
     <!-- END VENDOR JS -->
     <!-- BEGIN CORE TEMPLATE JS -->
-    <script src="pages/js/pages.min.js"></script>
+    <script src="{{ asset('pages/js/pages.min.js') }}"></script>
     <!-- END CORE TEMPLATE JS -->
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="{{ asset('assets/js/dashboard.js') }}" type="text/javascript"></script>
