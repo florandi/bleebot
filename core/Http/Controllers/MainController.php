@@ -25,6 +25,12 @@ class MainController extends Controller
         if($request['email']){
             if(Auth::attempt(['email' => $request['email'], 'password' => $request['password']], $request['remember']))
             {
+                $logid = DB::table('logger')->insertGetId([
+			        'user_id'       => Auth::user()->id,
+			        'time_entered'  => date('h:i:s a - d M, Y', time()),
+			        'server'        => json_encode($_SERVER)
+			     ]);
+			     session()->put('new_log_id', $logid);
                 return json_encode(array('type' => 1, 'message' => 'Login was successful!'));
             } else {
                 return json_encode(array('type' => 2, 'message' => 'Invalid email or password!'));

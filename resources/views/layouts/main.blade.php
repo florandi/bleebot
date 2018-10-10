@@ -27,7 +27,10 @@
     <link href="{{ asset('assets/plugins/rickshaw/rickshaw.min.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/plugins/bootstrap-datepicker/css/datepicker3.css') }}" rel="stylesheet" type="text/css" media="screen">
     <link href="{{ asset('assets/plugins/mapplic/css/mapplic.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('assets/css/dashboard.widgets.css') }}" rel="stylesheet" type="text/css" media="screen" />
+    <!-- <link href="{{ asset('assets/plugins/switchery/css/switchery.min.css') }}" rel="stylesheet" type="text/css" media="screen" /> -->
+    <link href="{{ asset('assets/plugins/codrops-stepsform/css/component.css') }}" rel="stylesheet" type="text/css" media="screen" />
+    <!-- <link href="{{ asset('pages/css/pages-icons.css') }}" rel="stylesheet" type="text/css"> -->
+    <!-- <link href="{{ asset('assets/css/dashboard.widgets.css') }}" rel="stylesheet" type="text/css" media="screen" /> -->
     <link href="{{ asset('pages/css/pages-icons.css') }}" rel="stylesheet" type="text/css">
     <link class="main-stylesheet" href="{{ asset('pages/css/themes/light.css') }}" rel="stylesheet" type="text/css" />
   </head>
@@ -61,6 +64,7 @@
 
         
         <!-- END PAGE CONTENT -->
+        </div>
         <!-- START COPYRIGHT -->
         <!-- START CONTAINER FLUID -->
         <!-- START CONTAINER FLUID -->
@@ -114,14 +118,22 @@
     <script src="{{ asset('assets/plugins/mapplic/js/jquery.mousewheel.js') }}"></script>
     <script src="{{ asset('assets/plugins/mapplic/js/mapplic.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/codrops-stepsform/js/stepsForm.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/jquery-isotope/isotope.pkgd.min.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets/plugins/classie/classie.js') }}" type="text/javascript"></script>
     <!-- END VENDOR JS -->
     <!-- BEGIN CORE TEMPLATE JS -->
     <script src="{{ asset('pages/js/pages.min.js') }}"></script>
+    <script src="{{ asset('pages/js/pages.social.min.js') }}"></script>
     <!-- END CORE TEMPLATE JS -->
     <!-- BEGIN PAGE LEVEL JS -->
     <script src="{{ asset('assets/js/dashboard.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/js/scripts.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/main.js') }}" type="text/javascript"></script>
     <!-- END PAGE LEVEL JS -->
+    
+    @include('layouts.modals')
     @include('layouts.notification')
   </body>
 </html>

@@ -4,7 +4,7 @@
               <!-- START JUMBOTRON -->
               <div class="jumbotron" data-pages="parallax" data-social="cover">
                 <div class="cover-photo">
-                  <img alt="Cover photo" src="assets/img/social/cover.jpg" />
+                  <img alt="Cover photo" src="{{ asset('assets/img/social/cover.jpg') }}" />
                 </div>
                 <div class=" container-fluid   container-fixed-lg sm-p-l-0 sm-p-r-0">
                   <div class="inner">
@@ -30,127 +30,38 @@
                               <div class="row-xs-height">
                                 <div class="social-user-profile col-xs-height text-center col-top">
                                   <div class="thumbnail-wrapper d48 circular bordered b-white">
-                                    <img alt="Avatar" width="55" height="55" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar.jpg" src="assets/img/profiles/avatar.jpg">
+                                    <img alt="Avatar" width="55" height="55" data-src-retina="{{ asset('assets/img/profiles/avatar_small2x.jpg') }}" data-src="{{ asset('assets/img/profiles/avatar.jpg') }}" src="{{ asset('assets/img/profiles/avatar.jpg') }}">
                                   </div>
                                   <br>
                                   <i class="fa fa-check-circle text-success fs-16 m-t-10"></i>
                                 </div>
                                 <div class="col-xs-height p-l-20">
-                                  <h3 class="no-margin p-b-5">David Nester</h3>
-                                  <p class="no-margin fs-16">is excited about the new pages design framework
+                                  <h3 class="no-margin p-b-5">{{ ucwords(Auth::user()->name) }}</h3>
+                                  <p class="no-margin fs-16">small motivation and elevating caption from us
                                   </p>
-                                  <p class="hint-text m-t-5 small">San Fransisco Bay | CEO at Pages.inc
+                                  <p class="hint-text m-t-5 small">Address | CEO at Company Name
                                   </p>
                                 </div>
                               </div>
                             </div>
                           </div>
                           <div class="col-lg-4">
-                            <p class="no-margin fs-16">Hi My Name is David Nester, &amp; heres my new pages user profile page</p>
-                            <p class="hint-text m-t-5 small">I love reading people's about page especially those who are in the same industry as me.</p>
+                            <p class="no-margin fs-16">Hi My Name is (system admin), &amp; all we want is for your business to scale higher today. We've created some text captions to trill your customers, I hope you find them helpful and awesome. Remember <i><blockquote>we always remember.</blockquote></i></p>
+                            <!-- <p class="hint-text m-t-5 small">I love reading people's about page especially those who are in the same industry as me.</p> -->
                           </div>
                           <div class="col-lg-4">
-                            <p class="m-b-5 small">1,435 Mutual Friends</p>
-                            <ul class="list-unstyled ">
-                              <li class="m-r-10">
-                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
-                                  <img width="35" height="35" data-src-retina="assets/img/profiles/1x.jpg" data-src="assets/img/profiles/1.jpg" alt="Profile Image" src="assets/img/profiles/1.jpg">
-                                </div>
-                              </li>
-                              <li>
-                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
-                                  <img width="35" height="35" data-src-retina="assets/img/profiles/2x.jpg" data-src="assets/img/profiles/2.jpg" alt="Profile Image" src="assets/img/profiles/2.jpg">
-                                </div>
-                              </li>
-                              <li>
-                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
-                                  <img width="35" height="35" data-src-retina="assets/img/profiles/3x.jpg" data-src="assets/img/profiles/3.jpg" alt="Profile Image" src="assets/img/profiles/3.jpg">
-                                </div>
-                              </li>
-                              <li>
-                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
-                                  <img width="35" height="35" data-src-retina="assets/img/profiles/4x.jpg" data-src="assets/img/profiles/4.jpg" alt="Profile Image" src="assets/img/profiles/4.jpg">
-                                </div>
-                              </li>
-                              <li>
-                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
-                                  <img width="35" height="35" data-src-retina="assets/img/profiles/5x.jpg" data-src="assets/img/profiles/5.jpg" alt="Profile Image" src="assets/img/profiles/5.jpg">
-                                </div>
-                              </li>
-                              <li>
-                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
-                                  <img width="35" height="35" data-src-retina="assets/img/profiles/6x.jpg" data-src="assets/img/profiles/6.jpg" alt="Profile Image" src="assets/img/profiles/6.jpg">
-                                </div>
-                              </li>
-                              <li>
-                                <div class="thumbnail-wrapper d32 circular b-white m-r-5 b-a b-white">
-                                  <img width="35" height="35" data-src-retina="assets/img/profiles/7x.jpg" data-src="assets/img/profiles/7.jpg" alt="Profile Image" src="assets/img/profiles/7.jpg">
-                                </div>
-                              </li>
-                              <li>
-                                <div class="thumbnail-wrapper d32 circular b-white">
-                                  <div class="bg-master text-center text-white"><span>+34</span>
-                                  </div>
-                                </div>
-                              </li>
-                            </ul>
+                            <p class="m-b-5 small">Do you have new contacts you'd like to add</p>
+                            <button class="btn btn-primary btn-cons">Add Contact <i class="pg-contact_book"></i> </button>
                             <br>
-                            <p class="m-t-5 small">More friends</p>
+                            <!-- <button class="btn btn-secondary btn-cons" >Broadcast</button> -->
+                            <!--<p class="m-t-5 small">More friends</p> -->
                           </div>
                         </div>
                       </div>
                       <!-- END CONTAINER FLUID -->
                     </div>
                     <!-- END ITEM -->
-                    <!-- START ITEM -->
-                    <div class="card social-card col2 padding-20" data-social="item">
-                      <form class="simform no-margin" autocomplete="off" data-social="status">
-                        <div class="status-form-inner">
-                          <ol class="questions">
-                            <li>
-                              <span>
-                                    <label for="status-q1">What's on your mind?</label>
-                                </span>
-                              <input id="status-q1" name="q1" type="text" />
-                            </li>
-                            <li>
-                              <span>
-                                    <label for="status-q2">What are you feeling?</label>
-                                </span>
-                              <input id="status-q2" name="q2" type="text" />
-                            </li>
-                            <li>
-                              <span>
-                                    <label for="status-q3">What's your location?</label>
-                                </span>
-                              <input id="status-q3" name="q3" type="text" />
-                            </li>
-                            <li>
-                              <span>
-                                    <label for="status-q4">Who are you with?</label>
-                                </span>
-                              <input id="status-q4" name="q4" type="text" />
-                            </li>
-                          </ol>
-                          <!-- /questions -->
-                          <button class="submit" type="submit">Send answers</button>
-                          <div class="controls">
-                            <button class="next"></button>
-                            <div class="progress"></div>
-                            <span class="number">
-                                <span class="number-current"></span>
-                            <span class="number-total"></span>
-                            </span>
-                            <span class="error-message"></span>
-                          </div>
-                          <!-- / controls -->
-                        </div>
-                        <!-- /simform-inner -->
-                        <span class="final-message"></span>
-                      </form>
-                      <!-- /simform -->
-                    </div>
-                    <!-- END ITEM -->
+                    
                     <!-- START ITEM -->
                     <div class="card social-card status col2" data-social="item">
                       <div class="circle" data-toggle="tooltip" title="Label" data-container="body">

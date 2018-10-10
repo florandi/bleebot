@@ -57,7 +57,7 @@
           <img src="assets/img/logo.png" alt="logo" data-src="assets/img/logo.png" data-src-retina="assets/img/logo_2x.png" width="78" height="22">
           <p class="p-t-35">Sign into your pages account</p>
           <!-- START Login Form -->
-          <form id="form-login" class="p-t-15" role="form" method="post" action="">
+          <form id="form-login" onsubmit="return false" class="p-t-15" role="form" method="post" action="">
             <!-- START Form Control-->
             <div class="form-group form-group-default">
               <label>Login</label>
@@ -276,11 +276,34 @@
         $('#form-login').validate()
         email = $('#email').val()
         pass = $('#pass').val()
-        remember = ($('#remember').val() == 1) ? false : true;
-        $.post('/login-request', {'email': email, 'password' : pass, 'remember': remeber}, function (res){
+        remember = (document.getElementById('checkbox1').checked == true) ? false : true;
+        $.post('/login-request', {'email': email, 'password' : pass, 'remember': remember}, function (res){
             res = JSON.parse(res)
             console.log(res)
+            if(res.type == 1){
+              $('.login-container').pgNotification({
+                  style: 'circle',
+                  message: res.message,
+                  position: 'top-right',
+                  timeout: 3000,
+                  type: 'info'
+              }).show();
+              setTimeout(function(){
+                window.location.assign('/user/dashboard');
+              }, 3000)
+            }
+
+            if(res.type == 2){
+              $('.login-container').pgNotification({
+                  style: 'circle',
+                  message: res.message,
+                  position: 'top-right',
+                  timeout: 3000,
+                  type: 'danger'
+              }).show();
+            }
         });
+        return false;
     }
     </script>
   </body>
