@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::group(['middleware' => ['guest']], function() {
 
     Route::any('/login',            'MainController@login');
@@ -28,11 +29,14 @@ Route::group(['middleware' => ['guest']], function() {
 
 Route::group(['middleware' => ['auth']], function () 
 {
+    
     Route::any("user/dashboard", "DashboardController@index");
 
     //module system
     Route::any('/create/module', 'Module\ModuleController@index');
     Route::any('/creating/module/ajax', 'Module\ModuleController@createModule');
+    Route::any('/edit/module/ajax', 'Module\ModuleController@editModule');
+    Route::any('/delete/module/{id?}', 'Module\ModuleController@delete')
 
 });
 
@@ -50,3 +54,5 @@ Route::get('/logout', function(){
     Session::flush();
     return redirect('/login')->with('success', 'You have been logged out!');
 });
+
+Auth::routes();

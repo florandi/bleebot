@@ -112,21 +112,17 @@ class ModuleController extends GeneralController
         return json_encode(['type' => 2, 'message' => 'Oops! something went wrong, please try again later']);
     }
 
-    public function editmod(Request $request)
+    public function editModule(Request $request)
     {
-        if($request['description']){
-            $this->validate($request, [
-                'description'   => 'required'
-            ],[],
-                [
-                    'description' => 'Description'
+        if($request['modulename'] && $request['id'] && $request['moduleorder']){
+            
+            DB::Table('modules')->where('id', $request['id'])->update([
+                'description'  => $request['modulename'],
+                'module_order'  => $request['moduleorder']
             ]);
 
-            DB::Table('modules')->where('id', $request['mod-id'])->update([
-                'description'  => $request['description']
-            ]);
-
-            return redirect()->back()->with('success', 'Module has been updated');
+            return json_encode(['type' => 1, 'message' => 'Action was succesful!']);
         }
+        return json_encode(['type' => 2, 'message' => 'Oops looks like something went wrong!']);
     }
 }

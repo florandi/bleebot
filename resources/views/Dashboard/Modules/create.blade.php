@@ -108,10 +108,18 @@
                         <p>{{ date('M d, Y h:i a', strtotime($list->created_at)) }}</p>
                       </td>
                       <td class="v-align-middle">
-                        <p>{{ $list->module_order }}c</p>
+                        <p>{{ $list->module_order }}</p>
                       </td>
                       <td class="v-align-middle">
-                        <p>...</p>
+                        <p>
+                        <div class="btn-group">
+                          
+                          <button onclick="return editModule('{{ $list->description }}', '{{ $list->module_order}}', {{$list->id}})" type="button" class="btn btn-success"><i class="fa fa-pencil"></i>
+                          </button>
+                          <button onclick="return deleteModule({{$this->id}})" type="button" class="btn btn-danger"><i class="fa fa-trash-o"></i>
+                          </button>
+                        </div>
+                        </p>
                       </td>
                     </tr>
                     @endforeach
@@ -123,4 +131,61 @@
             <!-- END card -->
           </div>
         </div>
+
+<div class="modal fade slide-right" id="editModuleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content-wrapper">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                </button>
+                <div class="container-xs-height full-height">
+                    <div class="row-xs-height">
+                        <div class="modal-body col-xs-height col-middle text-center   ">
+                            <h5 class="text-primary ">Edit Module Form </h5>
+                            <div class="alert" id="editmodtab"role="alert">
+                                <button class="close" data-dismiss="alert"></button>
+                                <span id="editmodMess"></span>
+                            </div>
+                            <input type="text" value="" name="" class="form-control" id="modname">
+                            <br>
+                            <input type="text" value="" name="" class="form-control" id="modorder">
+                            <br>
+                            <input type="hidden" id="the-id" value="">
+                            <button type="button" class="btn btn-primary btn-block" onclick="return saveModuleEditedDetails()">Save</button>
+                            <button type="button" class="btn btn-default btn-block" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+              <!-- /.modal-content -->
+    </div>
+            <!-- /.modal-dialog -->
+</div>
+
+<!-- MODAL STICK UP SMALL ALERT -->
+<div class="modal fade stick-up" id="deleteModule" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+              <div class="modal-content-wrapper">
+                <div class="modal-content">
+                  <div class="modal-header clearfix text-left">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="pg-close fs-14"></i>
+                    </button>
+                    <h5>Delete Action</h5>
+                  </div>
+                  <div class="modal-body">
+                    <p class="no-margin">Are you sure you want to continue this action?</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-cons no-margin pull-left inline" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary btn-cons  pull-left inline" id="thedeletelink" data-dismiss="modal">Continue</a>
+
+                  </div>
+                </div>
+              </div>
+              <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+          </div>
+          <!-- END MODAL STICK UP SMALL ALERT -->
 @endsection
