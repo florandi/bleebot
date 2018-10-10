@@ -122,6 +122,14 @@
     <script src="{{ asset('assets/plugins/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-isotope/isotope.pkgd.min.js') }}" type="text/javascript"></script>
     <script src="{{ asset('assets/plugins/classie/classie.js') }}" type="text/javascript"></script>
+    <script>
+      //laravel ajax required code
+      $.ajaxSetup({
+            headers: {
+            'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
     <!-- END VENDOR JS -->
     <!-- BEGIN CORE TEMPLATE JS -->
     <script src="{{ asset('pages/js/pages.min.js') }}"></script>

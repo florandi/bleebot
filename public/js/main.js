@@ -10,7 +10,7 @@ function loader(a,  message = 'Loading...')
     }
 
     if(a == 2){
-        $('#load-modal').modal('hide');
+        $('#loadermodal').modal('hide');
         $('.modal-backdrop').remove();
     }
 }
@@ -18,7 +18,7 @@ function loader(a,  message = 'Loading...')
 
 function createModule()
 {
-    // loader(1);
+    loader(1);
     // alert('here')
     mname = document.getElementById('modulename').value;
     order = document.getElementById('order').value;
@@ -38,9 +38,10 @@ function createModule()
 				if(res.type == 2){
 					flashMessage(res.message, "danger")                    
 				}
+            } else {
+                loader(2)
+                flashMessage("Oops sorry there was no response please try again later", "danger")
             }
-            loader(2)
-            flashMessage("Oops sorry there was no response please try again later", "danger")
 		});
     } else {
         loader(2)

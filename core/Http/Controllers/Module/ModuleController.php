@@ -33,7 +33,7 @@ class ModuleController extends GeneralController
         foreach($module as $key => $value)
         {
             $line = (array) $value;
-            $line['submodules'] = DB::Table('sub_modules')->Where('module_id', $value->id)->count();
+            $line['submodules'] = DB::Table('sub_modules')->Where('module_id', $value->id)->get();
             $line['created'] = date('h:i a - jS M, Y', strtotime($value->created_at));
             $line['order']    = ($value->module_order == null) ? 0 : $value->module_order;
             $line = (object) $line;
