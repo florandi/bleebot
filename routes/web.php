@@ -14,3 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::group(['middleware' => ['guest']], function() {
+
+    Route::any('/login',            'MainController@login');
+    Route::any('/forgot-password',  'MainController@forgotpassword');
+    Route::any('/register',         'MainController@register');
+    Route::any('/verify/email',     'MainController@verify');
+    
+    Route::any('/login-request', 'MainController@ajax_login');
+
+});
